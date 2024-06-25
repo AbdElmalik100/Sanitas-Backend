@@ -1,0 +1,1 @@
+web: gunicorn sanitas.wsgi --log-file -
