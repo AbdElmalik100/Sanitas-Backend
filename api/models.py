@@ -7,11 +7,14 @@ from accounts.models import CustomUser
 class ProductStore(models.Model):
     name = models.CharField(max_length=255)
     price = models.FloatField()
-    image = models.ImageField(upload_to='uploads', blank=True, null=True)
+    image = models.ImageField(upload_to='products', blank=True, null=True)
     code = models.CharField(max_length=255)
 
 class ProductComponent(models.Model):
-    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='product component detecions')
+    result = models.CharField(max_length=255, blank=True, null=True, editable=False)
+    result_class = models.IntegerField(blank=True, null=True, editable=False)
+    nutritions = models.JSONField(blank=True, null=True, editable=False)
 
 class DiseaseType(models.Model):
     name = models.CharField(max_length=255)
@@ -22,6 +25,6 @@ class Orders(models.Model):
 
 
 class MeatDetection(models.Model):
-    image = models.ImageField(upload_to='meat_detection', blank=True, null=True)
-    result = models.CharField(max_length=255, blank=True, null=True)
-    result_class = models.CharField(max_length=255 ,blank=True, null=True)
+    image = models.ImageField(upload_to='meat_detection')
+    result = models.CharField(max_length=255, blank=True, null=True, editable=False)
+    result_class = models.CharField(max_length=255 ,blank=True, null=True, editable=False)
