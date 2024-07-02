@@ -4,8 +4,9 @@ from .views import *
 
 router = DefaultRouter()
 
-router.register('chronic_disease', ChronicDiseasesViewSet)
-router.register('allergy', AllergyViewSet)
+router.register('diabetes-nutrients', DiabetesNutrientsViewSet)
+router.register('hypertension-nutrients', HypertensionNutrientsViewSet)
+router.register('allergy-nutrients', AllergyNutrientsViewSet)
 
 
 urlpatterns = [

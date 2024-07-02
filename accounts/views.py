@@ -5,11 +5,15 @@ from .serializers import *
 # Create your views here.
 
 
-class ChronicDiseasesViewSet(viewsets.ModelViewSet):
-    queryset = ChronicDiseases.objects.all()
-    serializer_class = ChronicDiseasesSerializer
+class DiabetesNutrientsViewSet(viewsets.ModelViewSet):
+    queryset = DiabetesNutrients.objects.all()
+    serializer_class = DiabetesNutrientsSerializer
 
-class AllergyViewSet(viewsets.ModelViewSet):
-    queryset = Allergy.objects.all()
-    serializer_class = AllergySerializer
+class HypertensionNutrientsViewSet(viewsets.ModelViewSet):
+    queryset = HypertensionNutrients.objects.all()
+    serializer_class = HypertensionNutrientsSerializer
+    
+class AllergyNutrientsViewSet(viewsets.ModelViewSet):
+    queryset = AllergyNutrients.objects.all()
+    serializer_class = AllergyNutrientsSerializer
     

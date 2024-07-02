@@ -39,3 +39,7 @@ class ManagingUsers(UserAdmin):
 
 
 admin.site.register(CustomUser, ManagingUsers)
+
+admin.site.register(DiabetesNutrients)
+admin.site.register(HypertensionNutrients)
+admin.site.register(AllergyNutrients)

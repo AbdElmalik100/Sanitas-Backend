@@ -4,21 +4,26 @@ from rest_framework import serializers
 from .models import *
 
 
-class ChronicDiseasesSerializer(serializers.ModelSerializer):
+class DiabetesNutrientsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ChronicDiseases
+        model = DiabetesNutrients
         fields = '__all__'
     
-class AllergySerializer(serializers.ModelSerializer):
+class HypertensionNutrientsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Allergy
+        model = HypertensionNutrients
+        fields = '__all__'
+class AllergyNutrientsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AllergyNutrients
         fields = '__all__'
 
 
 
 class CustomUserSerializer(UserSerializer):
-    user_chronic_disease = ChronicDiseasesSerializer(many = True, read_only = True)
-    user_allergy = AllergySerializer(many = True, read_only = True)
+    user_diabetes_nutrients = DiabetesNutrientsSerializer(many = True, read_only = True)
+    user_hypertension_nutrients = HypertensionNutrientsSerializer(many = True, read_only = True)
+    user_allergy_nutrients = AllergyNutrientsSerializer(many = True, read_only = True)
     
     class Meta:
         model = get_user_model()

@@ -43,25 +43,30 @@ class CustomUser(AbstractUser):
     REQUIRED_FIELDS = ['first_name', 'last_name', 'username', 'gender']
 
 
-class ChronicDiseases(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='user_chronic_disease')
+class DiabetesNutrients(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='user_diabetes_nutrients')    
     diabetes = models.BooleanField(default=False)
+
+class HypertensionNutrients(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='user_hypertension_nutrients')
     hypertension = models.BooleanField(default=False)
 
-class Allergy(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='user_allergy')
-    sea_food = models.BooleanField(default=False)
+class AllergyNutrients(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='user_allergy_nutrients')
+    gluten = models.BooleanField(default=False)
     lactose = models.BooleanField(default=False)
     egg = models.BooleanField(default=False)
-    gluten = models.BooleanField(default=False)
 
 
 @receiver(post_save, sender = CustomUser)
 def createChronicDiseasesAndAllergy(sender, instance = None, created = False, *args, **kwargs):
     if created:
-        ChronicDiseases.objects.create(
+        DiabetesNutrients.objects.create(
             user = instance
         )
-        Allergy.objects.create(
+        HypertensionNutrients.objects.create(
+            user = instance
+        )
+        AllergyNutrients.objects.create(
             user = instance
         )

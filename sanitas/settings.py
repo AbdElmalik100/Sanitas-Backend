@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '*']
 
 CORS_ORIGIN_ALLOW_ALL = True
-CSRF_TRUSTED_ORIGINS = ['https://sanitas-backend.up.railway.app',]
+# CSRF_TRUSTED_ORIGINS = ['https://sanitas-backend.up.railway.app',]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
@@ -121,25 +121,25 @@ WSGI_APPLICATION = 'sanitas.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Railway Database For Me 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'IGWaJsedzAzyImAFgXRxLneWXnDGbNBD',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '41944',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'IGWaJsedzAzyImAFgXRxLneWXnDGbNBD',
+#         'HOST': 'monorail.proxy.rlwy.net',
+#         'PORT': '41944',
+#     }
+# }
 
 
 
